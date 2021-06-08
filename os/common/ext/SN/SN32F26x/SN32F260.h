@@ -1721,12 +1721,14 @@ typedef struct {                                    /*!< SN_CT16B1 Structure    
       __IO uint32_t  MR19STOP   :  1;               /*!< Stop TC and PC and clear CEN bit when MR19 matches TC                 */
     } MCTRL2_b;                                     /*!< BitSize                                                               */
   };
-  
+
   union {
     __IO uint32_t  MCTRL3;                          /*!< Offset:0x1C CT16Bn Match Control Register                             */
-    
+
     struct {
-           uint32_t             :  3;
+      __IO uint32_t  MR20IE     :  1;               /*!< Enable generating an interrupt when MR21 matches TC                   */
+      __IO uint32_t  MR20RST    :  1;               /*!< Enable reset TC when MR21 matches TC                                  */
+      __IO uint32_t  MR20STOP   :  1;               /*!< Stop TC and PC and clear CEN bit when MR21 matches TC                 */
       __IO uint32_t  MR21IE     :  1;               /*!< Enable generating an interrupt when MR21 matches TC                   */
       __IO uint32_t  MR21RST    :  1;               /*!< Enable reset TC when MR21 matches TC                                  */
       __IO uint32_t  MR21STOP   :  1;               /*!< Stop TC and PC and clear CEN bit when MR21 matches TC                 */
@@ -1736,6 +1738,10 @@ typedef struct {                                    /*!< SN_CT16B1 Structure    
       __IO uint32_t  MR23IE     :  1;               /*!< Enable generating an interrupt when MR23 matches TC                   */
       __IO uint32_t  MR23RST    :  1;               /*!< Enable reset TC when MR23 matches TC                                  */
       __IO uint32_t  MR23STOP   :  1;               /*!< Stop TC and PC and clear CEN bit when MR23 matches TC                 */
+      /* MR24IE doesn't exist but will always read as 0.*/
+      __IO uint32_t  MR24IE     :  1;               /*!< Enable generating an interrupt when MR21 matches TC                   */
+      __IO uint32_t  MR24RST    :  1;               /*!< Enable reset TC when MR21 matches TC                                  */
+      __IO uint32_t  MR24STOP   :  1;               /*!< Stop TC and PC and clear CEN bit when MR21 matches TC                 */
     } MCTRL3_b;                                     /*!< BitSize                                                               */
   };
   __IO uint32_t  MR0;                               /*!< Offset:0x20 CT16Bn MR0 Register                                       */
